@@ -145,6 +145,9 @@ body {
   margin-inline: 1.5rem;
 }
 
+ul {
+  list-style: none;
+}
 
 a {
   text-decoration: none;
