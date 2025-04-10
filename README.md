@@ -35,8 +35,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Frontend Mentor]()
-- Live Site URL: [GitHub Pages]()
+- Solution URL: [Frontend Mentor](https://www.frontendmentor.io/solutions/responsive-time-tracking-dashboard-using-html-css-and-javascript-gBSNJNE6-L)
+- Live Site URL: [GitHub Pages](https://bccpadge.github.io/time-tracking-dashboard/)
 
 ## My process
 
