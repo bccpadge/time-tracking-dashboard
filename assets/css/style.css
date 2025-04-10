@@ -1,0 +1,399 @@
+@font-face {
+  font-family: "Rubik";
+  src: url("../fonts/rubik-v28-latin-300.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Rubik";
+  src: url("../fonts/rubik-v28-latin-regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+@font-face {
+  font-family: "Rubik";
+  src: url("../fonts/rubik-v28-latin-500.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
+/* !css variables */
+:root {
+  --clr-blue: 246 80% 60%;
+  /* time card colors */
+  --clr-work: 15 100% 70%;
+  --clr-play: 195 74% 62%;
+  --clr-study: 348 100% 68%;
+  --clr-exercise: 145 58% 55%;
+  --clr-social: 264 64% 52%;
+  --clr-self-care: 43 84% 65%;
+
+  --clr-bkg: 226 43% 10%;
+  --clr-card-bkg: 226 46% 20%;
+  --clr-desaturated-blue: 235 45% 61%;
+  --clr-pale-blue: 236 100% 87%;
+
+
+  --clr-white: 0 0% 100%;
+
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --ff-body: "Rubik", sans-serif;
+}
+
+/* reset */
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin and padding */
+* {
+  margin: 0;
+  padding: 0
+}
+
+html {
+  font-size: 100%;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-block-size: 100dvh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* !sometimes referred to as .sr-only */
+.visually-hidden:not(:focus):not(:active):not(:focus-within) {
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+*:focus-visible {
+  outline: 2px dotted hsl(var(--clr-blue));
+  outline-offset: 5px;
+}
+
+/* !general styles */
+body {
+  font-family: var(--ff-body);
+  background-color: hsl(var(--clr-bkg));
+  padding-block: 4.9375rem;
+  margin-inline: 1.5rem;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+/* !layout styles */
+.card__grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.card__flex {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* !profile card */
+.profile {
+  background-color: hsl(var(--clr-card-bkg));
+  border-radius: 1.0625rem;
+  margin-block-end: 1.5rem;
+}
+
+.profile__top {
+  background-color: hsl(var(--clr-blue));
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.9375rem 1.875rem;
+  border-radius: inherit;
+}
+
+.profile__img {
+  border-radius: 50%;
+  border: 2px solid hsl(var(--clr-white));
+}
+
+.profile__title {
+  --clr-title: 240 23% 91%;
+  color: hsl(var(--clr-title));
+}
+
+.profile__name {
+  font-size: 1.5625rem;
+  font-weight: var(--fw-light);
+  color: hsl(var(--clr-white));
+}
+
+
+.tab__list {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.6875rem 2.1875rem;
+}
+
+.tab__link {
+  font-size: 1.0625rem;
+  color: hsl(var(--clr-pale-blue));
+}
+
+/* !tab states - active using aria-selected */
+.tab__link:where([aria-selected="true"], :hover, :focus-visible) {
+  color: hsl(var(--clr-white));
+}
+
+
+/* !time cards */
+.card {
+  --_bkg: var(--bkg, hsl(var(--clr-card-bkg)));
+  background-color: var(--_bkg);
+  border-radius: 1.0625rem;
+  position: relative;
+}
+
+.card__list-item {
+  transition: all .2s ease-in-out;
+  height: fit-content;
+}
+
+.card__list-item:is(:hover, :focus-within) {
+  box-shadow: 0 0 0 .28rem;
+  border-radius: 1.0625rem;
+  scale: 1.05;
+}
+
+/* !change background color with local scope custom property */
+.card--work {
+  --bkg: hsl(var(--clr-work));
+}
+
+.card--play {
+  --bkg: hsl(var(--clr-play));
+}
+
+.card--study {
+  --bkg: hsl(var(--clr-study));
+}
+
+.card--exercise {
+  --bkg: hsl(var(--clr-exercise));
+}
+
+.card--social {
+  --bkg: hsl(var(--clr-social));
+}
+
+.card--self-care {
+  --bkg: hsl(var(--clr-self-care));
+}
+
+
+.card__top {
+  display: grid;
+  place-items: start end;
+  height: 2.375rem;
+  margin-inline-end: 1rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.card__top img {
+  position: absolute;
+  top: -.5rem;
+}
+
+.card__data {
+  padding: 1.875rem 1.4375rem;
+  background-color: hsl(var(--clr-card-bkg));
+  border-radius: inherit;
+  color: hsl(var(--clr-white));
+  transition: background-color 300ms ease-in-out;
+}
+
+.card__data:hover {
+  background-color: hsl(235, 46%, 35%);
+}
+
+.card__type {
+  font-size: 1.125rem;
+  font-weight: var(--fw-medium);
+  color: hsl(var(--clr-white));
+}
+
+.card__type::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.card__type:focus {
+  outline: none;
+}
+
+.card__hours {
+  font-size: 2rem;
+  font-weight: var(--fw-light);
+}
+
+.card__previous {
+  color: hsl(var(--clr-pale-blue));
+}
+
+/* !hide inactive panels */
+[data-js-panel][aria-hidden="true"] {
+  display: none;
+}
+
+/* !attribution */
+.attribution {
+  font-size: 0.75rem;
+  text-align: center;
+  color: hsl(var(--clr-white));
+  position: fixed;
+  inset: auto auto 1rem 1rem;
+  display: none;
+
+  @media (width >=56.25rem) {
+    display: block;
+  }
+}
+
+.attribution a {
+  color: hsl(var(--clr-play));
+}
+
+
+/* !media queries */
+@media (width >=37.5em) {
+
+  .card__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+@media (width >=90em) {
+  body {
+    display: grid;
+    place-content: center;
+  }
+
+  .wrapper {
+    max-width: 69.375rem;
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .profile {
+    margin-block-end: 0;
+  }
+
+
+  .profile__top {
+    gap: 2rem;
+    flex-direction: column;
+    align-items: start;
+    height: 21.8125rem;
+  }
+
+  .profile__name {
+    font-size: 2.5rem;
+  }
+
+  .tab__list {
+    flex-direction: column;
+  }
+
+  .card__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .card {
+    width: 16.25rem;
+  }
+
+  .card__data .card__flex:nth-child(2) {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .card__hours {
+    font-size: 3.5rem;
+  }
+
+}

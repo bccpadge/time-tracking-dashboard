@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="description" content="Frontend Mentor - Time tracking dashboard" />
+  <meta name="keywords" content="HTML, CSS, JavaScript" />
+  <meta name="author" content="Rebecca Padgett" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <title>Frontend Mentor | Time tracking dashboard</title>
+  <!-- !css -->
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <!-- !JavaScript -->
+  <script src="./assets/js/script.js" defer></script>
+</head>
+
+<body>
+  <main>
+    <section class="wrapper" data-js-wrapper aria-labelledby="section-title">
+      <!-- !profile card -->
+      <article class="profile">
+        <!-- !profile top -->
+        <div class="profile__top">
+          <img class="profile__img" src="./assets/images/image-jeremy.png" width="72" height="72"
+            alt="headshot of Jeremy Robson" />
+          <div id="section-title">
+            <p class="profile__title">Report for</p>
+            <h1 class="profile__name">Jeremy Robson</h1>
+          </div>
+        </div>
+        <!-- !profile bottom -->
+        <ul class="tab__list" data-js-list>
+          <li>
+            <a href="#daily-panel" class="tab__link" aria-selected="true" id="tab-1" aria-describedby="daily-panel"
+              data-js-tab>Daily</a>
+          </li>
+          <li>
+            <a href="#weekly-panel" class="tab__link" id="tab-2" aria-selected="false" aria-describedby="weekly-panel"
+              data-js-tab>Weekly</a>
+          </li>
+          <li>
+            <a href="#monthly-panel" class="tab__link" id="tab-3" aria-selected="false" aria-describedby="monthly-panel"
+              data-js-tab>Monthly</a>
+          </li>
+        </ul>
+      </article>
+      <!-- !daily -->
+      <ul class="card__grid" id="daily-panel" aria-labelledby="tab-1" data-js-panel aria-hidden="false"></ul>
+      <!-- !weekly -->
+      <ul class="card__grid" id="weekly-panel" aria-labelledby="tab-2" data-js-panel aria-hidden="true"></ul>
+      <!-- !monthly -->
+      <ul class="card__grid" id="monthly-panel" aria-labelledby="tab-3" data-js-panel aria-hidden="true"></ul>
+    </section>
+  </main>
+  <footer class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="https://linkedin.com/in/rebeccapadgett121">Rebecca Padgett</a>.
+  </footer>
+</body>
+
+</html>
