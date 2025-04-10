@@ -90,7 +90,7 @@ fetch('./data.json')
     // !Generate content for each panel
     data.forEach((item) => {
       dailyContent += `
-        <li class="card__list-item">
+        <div class="card__list-item">
           <article class="card card--${item.title.toLowerCase().replace(' ', '-')}">
             <div class="card__top">
               <img src="./assets/images/icon-${item.title.toLowerCase().replace(' ', '-')}.svg" alt="" aria-hidden="true" />
@@ -110,10 +110,10 @@ fetch('./data.json')
               </div>
             </div>
           </article>
-        </li>`;
+        </div>`;
 
       weeklyContent += `
-        <li class="card__list-item">
+        <div class="card__list-item">
           <article class="card card--${item.title.toLowerCase().replace(' ', '-')}">
             <div class="card__top">
               <img src="./assets/images/icon-${item.title.toLowerCase().replace(' ', '-')}.svg" alt="" aria-hidden="true" />
@@ -131,10 +131,10 @@ fetch('./data.json')
               </div>
             </div>
           </article>
-        </li>`;
+        </div>`;
 
       monthlyContent += `
-        <li class="card__list-item">
+        <div class="card__list-item">
           <article class="card card--${item.title.toLowerCase().replace(' ', '-')}">
             <div class="card__top">
               <img src="./assets/images/icon-${item.title.toLowerCase().replace(' ', '-')}.svg" alt="" aria-hidden="true" />
@@ -152,7 +152,7 @@ fetch('./data.json')
               </div>
             </div>
           </article>
-        </li>`;
+        </div>`;
     });
 
     // !Update the innerHTML of each panel
